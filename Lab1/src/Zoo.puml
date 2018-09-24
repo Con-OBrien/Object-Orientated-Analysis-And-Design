@@ -1,0 +1,39 @@
+@startuml
+
+Class Zoo {
+
+}
+
+Class Animal {
+- name: String
+- age: int
+- gender: char
+- weightPounds: int
+
++ eat()
++ sleep()
+}
+
+Class Bird {
++ fly()
+}
+
+Class Fish {
++ swim()
+}
+
+Class Chicken {
+
+}
+
+Class Sparrow {
+
+}
+
+Zoo -- "0..*" Animal : "contains"
+
+Animal --> Bird
+Animal --> Fish
+Bird --> Chicken
+Bird --> Sparrow
+@enduml
