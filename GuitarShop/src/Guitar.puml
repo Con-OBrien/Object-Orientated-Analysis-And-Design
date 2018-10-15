@@ -12,11 +12,22 @@ class Guitar {
 String model, Type type, Wood backWood, Wood topWood)
 + getSerialNumber(): String
 + getPrice(): double
++setPrice(double)
+}
+
+class GuitarSpec {
+- Builder builder
+- String model
+- Type type
+- int numStrings
+- Wood backWood
+- Wood topWood
 + getBuilder(): Builder
 + getModel(): String
 + getType(): Type
-+ getBackwood(): Wood
-+ getTopwood(): Wood
++ getNumStrings(): int
++ getBackWood(): Wood
++ getTopWood(): Wood
 }
 
 class Inventory {
@@ -28,10 +39,17 @@ class Inventory {
 String model, Type type, Wood backWood, Wood topWood)
 }
 
+
+
 enum Wood {
  CEDAR
  MAHOGANY
  ALDER
+}
+
+enum Strings {
+ SIX
+ TWELVE
 }
 
 enum Type {
@@ -45,8 +63,9 @@ enum Builder {
  MARTIN
  COLLINGS
 }
+GuitarSpec <|-- "0..* " Guitar : Has a
+Guitar --o Inventory : contains
 
-Guitar "0..* " o-- "1  " Inventory : contains
 
 
 @enduml
